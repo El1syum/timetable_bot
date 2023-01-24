@@ -1,28 +1,31 @@
-import logging
+import asyncio
 
-from aiogram import Bot, Dispatcher, executor, types
-from dotenv import dotenv_values
+from aiogram import Bot, Dispatcher
 
-# Configure logging
-logging.basicConfig(filename='bot.log', level=logging.INFO, encoding='utf-8')
-
-API_TOKEN = dotenv_values().get("TOKEN")
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot)
+from data.config import logging, API_TOKEN
+from handlers.echo import register_echo
+from handlers.love import register_love
+from handlers.start import register_welcome
 
 
-@dp.message_handler(commands=['start'])
-async def send_welcome(message: types.Message):
-    logging.info(message)
-    await message.reply(f'Hello, {message.from_user.first_name}!')
+def register_all_handlers(dp):
+    register_welcome(dp)
+    register_love(dp)
+    register_echo(dp)
 
 
-@dp.message_handler(lambda message: message.text == 'I love you')
-async def love(message: types.Message):
-    logging.info(message)
-    await message.answer(f'I love you too, {message.from_user.first_name}')
-    # await message.answer_sticker()
+async def main():
+    bot = Bot(token=API_TOKEN)
+    dp = Dispatcher(bot)
+    register_all_handlers(dp)
+    try:
+        await dp.start_polling()
+    finally:
+        await bot.session.close()
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    try:
+        asyncio.run(main())
+    except (KeyboardInterrupt, SystemExit):
+        logging.error('Bot stopped!')
