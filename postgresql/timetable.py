@@ -17,8 +17,6 @@ def create_cursor():
 
     create_table(cursor)
 
-    # insert_data(cursor)
-
     return cursor
 
 
@@ -34,33 +32,15 @@ def create_table(cursor):
                       tg_id BIGINT
                       )''')
 
-    # cursor.execute('ALTER TABLE users ADD CONSTRAINT unique_id UNIQUE (tg_id)')
-
-
-# def insert_data(cursor):
-#     cursor.execute('''INSERT INTO timetable (id, day_of_week) VALUES
-#                       (1, 'Monday'),
-#                       (2, 'Tuesday'),
-#                       (3, 'Wednesday'),
-#                       (4, 'Thursday'),
-#                       (5, 'Friday'),
-#                       (6, 'Saturday'),
-#                       (7, 'Sunday')
-#                       ON CONFLICT DO NOTHING
-#                       ''')
-
 
 def update_timetable(cursor, day_of_week, data, user_id):
-    # cursor.execute(f'INSERT INTO users (tg_id) VALUES ({user_id}) ON CONFLICT DO NOTHING')
     cursor.execute(f'SELECT * FROM timetable WHERE day_of_week = \'{day_of_week}\' AND tg_id = {user_id}')
     if cursor.fetchone():
-        cursor.execute(f'UPDATE timetable SET lessons = \'{data}\' WHERE day_of_week = \'{day_of_week}\' AND tg_id = {user_id}')
+        cursor.execute(
+            f'UPDATE timetable SET lessons = \'{data}\' WHERE day_of_week = \'{day_of_week}\' AND tg_id = {user_id}')
     else:
-        cursor.execute(f'''INSERT INTO timetable (day_of_week, lessons, tg_id) VALUES (\'{day_of_week}\', \'{data}\', {user_id})''')
-
-
-# def update_users(cursor, tg_id):
-#     cursor.execute(f'INSERT INTO users (tg_id) VALUES ({tg_id}) ON CONFLICT DO NOTHING')
+        cursor.execute(
+            f'''INSERT INTO timetable (day_of_week, lessons, tg_id) VALUES (\'{day_of_week}\', \'{data}\', {user_id})''')
 
 
 def get_timetable(cursor, day_of_week, tg_id):
@@ -76,11 +56,6 @@ def get_all_from_timetable(cursor):
     return cursor.fetchall()
 
 
-# def get_all_from_users(cursor):
-#     cursor.execute(f'SELECT * FROM users')
-#     return cursor.fetchall()
-
-
 if __name__ == '__main__':
     cursor = create_cursor()
     # update_timetable(cursor, 'Monday', 'asdasda', 1)
@@ -88,4 +63,3 @@ if __name__ == '__main__':
     # print(get_timetable(cursor, 'Friday'))
     print(get_all_from_timetable(cursor))
     # print(get_all_from_users(cursor))
-

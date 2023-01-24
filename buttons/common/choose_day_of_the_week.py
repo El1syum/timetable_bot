@@ -13,7 +13,7 @@ def day_of_the_week():
         [types.KeyboardButton(text='Cancel')],
     ]
     keyboard = types.ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True,
-                                         input_field_placeholder='Choose day of the week')
+                                         input_field_placeholder='Choose day of the week', one_time_keyboard=True)
     return keyboard
 
 
