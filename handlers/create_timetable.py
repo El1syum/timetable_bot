@@ -35,7 +35,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
     # Cancel state and inform user about it
     await state.finish()
     # And remove keyboard (just in case)
-    await message.reply('Cancelled.', reply_markup=types.ReplyKeyboardRemove())
+    await message.reply('Cancelled.', reply_markup=start_buttons())
 
 
 async def process_day(message: types.Message, state: FSMContext):
