@@ -1,0 +1,5 @@
+INFO:aiogram:Bot: Table Bot [@El1syum_TimeTableBot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:{"message_id": 28, "from": {"id": 681417562, "is_bot": false, "first_name": "данюсик", "username": "el1syum", "language_code": "ru", "is_premium": true}, "chat": {"id": 681417562, "first_name": "данюсик", "username": "el1syum", "type": "private"}, "date": 1674579771, "text": "/start", "entities": [{"type": "bot_command", "offset": 0, "length": 6}]}
+INFO:root:{"message_id": 31, "from": {"id": 681417562, "is_bot": false, "first_name": "данюсик", "username": "el1syum", "language_code": "ru", "is_premium": true}, "chat": {"id": 681417562, "first_name": "данюсик", "username": "el1syum", "type": "private"}, "date": 1674579775, "text": "I love you"}
