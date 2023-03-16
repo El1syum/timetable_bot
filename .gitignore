@@ -8,6 +8,8 @@ __pycache__/
 .idea/
 .idea/*
 
+logs/
+
 # C extensions
 *.so
 
