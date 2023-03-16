@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbbc70e5-a23c-4780-8343-fde3dbec5156" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/postgresql/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2N3au3CXTQddxyd9Wp72D4byY29" />
   <component name="ProjectLevelVcsManager">
@@ -84,7 +86,7 @@
       <workItem from="1678895440130" duration="336000" />
       <workItem from="1678895798013" duration="29000" />
       <workItem from="1678896685091" duration="27000" />
-      <workItem from="1678974951198" duration="743000" />
+      <workItem from="1678974951198" duration="787000" />
     </task>
     <servers />
   </component>
